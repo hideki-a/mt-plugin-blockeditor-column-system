@@ -1,0 +1,24 @@
+id: BlockEditorColumnSystem
+name: BlockEditorColumnSystem
+version: 1.0.0
+author_link: https://www.anothersky.pw/
+author_name: Hideki Abe
+description: <MT_TRANS phrase="Add column system field to BlockEditor.">
+
+blockeditor_fields:
+  column_container_start:
+    label: 'Column Container Start'
+    order: 1001
+    path: "plugins/BlockEditorColumnSystem/js/column_container_start.js"
+  column_container_end:
+    label: 'Column Container End'
+    order: 1002
+    path: "plugins/BlockEditorColumnSystem/js/column_container_end.js"
+  column_start:
+    label: 'Column Start'
+    order: 1003
+    path: "plugins/BlockEditorColumnSystem/js/column_start.js"
+  column_end:
+    label: 'Column End'
+    order: 1004
+    path: "plugins/BlockEditorColumnSystem/js/column_end.js"
