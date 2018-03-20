@@ -22,18 +22,30 @@
         },
         create: function (id, data) {
             var self = this;
+            var $column;
             self.id = id;
-            self.edit_field = 'Column Container Start';
+            self.edit_field = $('<div class="row no-gutters py-2"><div class="col"></div></div>');
+            self.select_header = $('<div class="form-group"><label class="form-control-label" for="' + id + '-ncolumns">' + trans('Number of columns') + '</label><select class="custom-select form-control w-25 ml-3" name="' + id + '-ncolumns" id="' + id + '-ncolumns"  mt:watch-change="1"><option value="2">2 columns</option><option value="3">3 columns</option><option value="4">4 columns</option></select></div>');
+            if (data.ncolumns) {
+                self.select_header.find('select').val(data.ncolumns);
+            }
+
+            $columns = self.edit_field.find('.col');
+            $columns.append(self.select_header);
+            $columns.append('<p>Column Container Start</p>');
             return self.edit_field;
         },
         get_data: function () {
             var self = this;
             return {
+                'ncolumns': self.select_header.find('select').val(),
                 'html': self.get_html(),
             };
         },
         get_html: function () {
-            return '<div class="layoutColumn">';
+            var self = this;
+            var nColumns = self.select_header.find('select').val();
+            return '<div class="layoutColumn layoutColumn--col-' + nColumns + '">';
         }
     });
 
